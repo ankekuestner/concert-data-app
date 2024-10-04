@@ -38,3 +38,7 @@ artist = st.text_input("Enter the Artist of which you want to know the Opening A
 opening_act_list= data.loc[data['Artist'] == artist]['Opening Act'].dropna().unique()
 for value in opening_act_list:
     st.write(value)
+
+# Show the total amount of concerts
+amount_of_concerts = data.shape[0]
+st.metric('Total number of concerts', amount_of_concerts)
