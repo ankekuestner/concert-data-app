@@ -24,6 +24,9 @@ fig, ax = plt.subplots()
 ax = data['Artist'].value_counts().sort_index(ascending=False).sort_values(ascending=True).plot(kind='barh')
 st.pyplot(fig)
 
+# Opening Acts
+data['Opening Act'].str.split(";")
+
 arr = np.random.normal(1,1, size=100)
 fig, ax = plt.subplots()
 ax = data['Opening Act'].value_counts().sort_index(ascending=False).sort_values(ascending=True).plot(kind='barh')
@@ -40,5 +43,7 @@ for value in opening_act_list:
     st.write(value)
 
 # Show the total amount of concerts
-amount_of_concerts = data.shape[0]
+amount_of_concerts = data['ConcertId'].nunique()
 st.metric('Total number of concerts', amount_of_concerts)
+
+
